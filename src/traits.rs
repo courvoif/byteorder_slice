@@ -1,5 +1,3 @@
-use crate::impls::Endianness;
-
 pub trait ByteOrder {
 
     fn read_u16(src: &[u8]) -> Option<u16>;
