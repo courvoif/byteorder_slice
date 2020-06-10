@@ -68,7 +68,9 @@ impl<'a> ReadSlice<'a> for &'a [u8] {
 
     fn read_u128<B: ByteOrder>(&mut self) -> Option<u128> {
         let res = B::read_u128(self);
-        *self = &self[16..];
+        if res.is_some() {
+            *self = &self[16..];
+        }
         res
     }
 
