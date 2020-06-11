@@ -82,7 +82,6 @@ impl<'a> ReadSlice<'a> for &'a [u8] {
         res
     }
 
-
     fn read_i8(&mut self) -> Option<i8> {
         self.read_u8().map(|n| n as i8)
     }
