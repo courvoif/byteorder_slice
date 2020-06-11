@@ -49,6 +49,21 @@ impl ByteOrder for BigEndian {
     }
 }
 
+#[cfg(byteorder_compat)]
+impl From<byteorder::BigEndian> for BigEndian {
+    fn from(_: byteorder::BigEndian) -> Self {
+        Self
+    }
+}
+
+#[cfg(byteorder_compat)]
+impl From<BigEndian> for byteorder::BigEndian {
+    fn from(_: BigEndian) -> Self {
+        Self
+    }
+}
+
+
 
 pub struct LittleEndian;
 impl ByteOrder for LittleEndian {
@@ -95,5 +110,19 @@ impl ByteOrder for LittleEndian {
         }
 
         Some(n)
+    }
+}
+
+#[cfg(byteorder_compat)]
+impl From<byteorder::LittleEndian> for LittleEndian {
+    fn from(_: byteorder::LittleEndian) -> Self {
+        Self
+    }
+}
+
+#[cfg(byteorder_compat)]
+impl From<LittleEndian> for byteorder::LittleEndian {
+    fn from(_: byteorder::LittleEndian) -> Self {
+        Self
     }
 }

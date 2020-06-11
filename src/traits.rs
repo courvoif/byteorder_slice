@@ -7,7 +7,6 @@ pub trait ByteOrder {
     fn read_uint(src: &[u8], nb_bytes: usize) -> Option<u64>;
 }
 
-
 pub trait ReadSlice<'a> {
 
     fn read_u8(&mut self) -> Option<u8>;
