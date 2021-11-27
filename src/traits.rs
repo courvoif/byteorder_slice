@@ -1,23 +1,6 @@
-pub trait ByteOrder {
-    /// Reads a u16 from `src`
-    fn read_u16(src: &[u8]) -> Option<u16>;
+use byteorder::ByteOrder; 
 
-    /// Reads a u32 from `src`
-    fn read_u32(src: &[u8]) -> Option<u32>;
-
-    /// Reads a u64 from `src`
-    fn read_u64(src: &[u8]) -> Option<u64>;
-
-    /// Reads a u128 from `src`
-    fn read_u128(src: &[u8]) -> Option<u128>;
-
-    /// Reads an unsigned n-bytes integer from `buf`
-    fn read_uint(src: &[u8], nb_bytes: usize) -> Option<u128>;
-
-    /// Reads a signed n-bytes integer from `buf`
-    fn read_int(src: &[u8], nb_bytes: usize) -> Option<i128>;
-}
-
+/// Extends &[u8] with methods for reading numbers and slices
 pub trait ReadSlice<'a> {
     /// Try to read a u8 from self
     fn read_u8(&mut self) -> Option<u8>;
@@ -35,7 +18,13 @@ pub trait ReadSlice<'a> {
     fn read_u128<B: ByteOrder>(&mut self) -> Option<u128>;
 
     /// Try to read an unsigned n-bytes integer from self
-    fn read_uint<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<u128>;
+    fn read_uint32<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<u32>;
+
+    /// Try to read an unsigned n-bytes integer from self
+    fn read_uint64<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<u64>;
+
+    /// Try to read an unsigned n-bytes integer from self
+    fn read_uint128<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<u128>;
 
     /// Try to read a i8 from self
     fn read_i8(&mut self) -> Option<i8>;
@@ -52,8 +41,14 @@ pub trait ReadSlice<'a> {
     /// Try to read a i128 from self
     fn read_i128<B: ByteOrder>(&mut self) -> Option<i128>;
 
-    /// Try to read a int from self
-    fn read_int<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<i128>;
+    /// Try to read a signed n-bytes integer from self
+    fn read_int32<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<i32>;
+
+    /// Try to read a signed n-bytes integer from self
+    fn read_int64<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<i64>;
+
+    /// Try to read a signed n-bytes integer from self
+    fn read_int128<B: ByteOrder>(&mut self, nb_bytes: usize) -> Option<i128>;
 
     /// Try to read a f32 from self
     fn read_f32<B: ByteOrder>(&mut self) -> Option<f32>;

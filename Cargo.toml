@@ -1,6 +1,6 @@
 [package]
 name = "byteorder_slice"
-version = "0.3.0"
+version = "1.0.0"
 authors = ["courvoif <courvoif@pm.me>"]
 edition = "2021"
 description = "Byteorder like crate for &[u8]"
