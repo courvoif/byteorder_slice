@@ -4,6 +4,10 @@ Provides convenience methods for reading numbers and slices from a slice
 
 ## Usage
 
+Use ```byteorder_slice = "1.0.0"``` if you want reads to return an Option.
+
+Use ```byteorder_slice = "2.0.0"``` if you want reads to return a std::io::Result.
+
 ```rust
 use byteorder_slice::{BigEndian, LittleEndian, ReadSlice}
 let data = vec![0_u8; 100];
