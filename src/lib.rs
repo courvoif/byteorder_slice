@@ -1,8 +1,8 @@
 #![allow(clippy::cast_lossless)]
-mod traits;
-mod byteorder_impl;
 mod read_slice_impl;
+mod traits;
 
-pub use traits::{ByteOrder, ReadSlice};
 pub use byteorder;
-pub use byteorder::{BigEndian, LittleEndian, NativeEndian, NetworkEndian};
+pub use byteorder::{ByteOrder, BigEndian, LittleEndian, NativeEndian, NetworkEndian};
+
+pub use crate::traits::ReadSlice;
