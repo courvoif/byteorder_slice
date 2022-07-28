@@ -1,6 +1,6 @@
 use std::io::Result as IoResult;
 
-use byteorder::ByteOrder; 
+use byteorder::ByteOrder;
 
 /// Extends &[u8] with methods for reading numbers and slices
 pub trait ReadSlice<'a> {

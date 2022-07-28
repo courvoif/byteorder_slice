@@ -72,7 +72,6 @@ impl<'a> ReadSlice<'a> for &'a [u8] {
         }
     }
 
-
     fn read_uint64<B: ByteOrder>(&mut self, nb_bytes: usize) -> IoResult<u64> {
         if nb_bytes != 0 && nb_bytes <= 8 && self.len() >= nb_bytes {
             let b = B::read_uint(self, nb_bytes);
