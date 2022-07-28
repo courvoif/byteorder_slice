@@ -1,6 +1,6 @@
 use std::io::Result as IoResult;
 
-use byteorder::ByteOrder; 
+use byteorder::ByteOrder;
 
 /// Extends &[u8] with methods for reading numbers and slices
 pub trait ReadSlice<'a> {
@@ -67,4 +67,3 @@ pub trait ReadSlice<'a> {
     /// Try to move forward in self
     fn move_forward(&mut self, nb_bytes: usize) -> IoResult<()>;
 }
-
