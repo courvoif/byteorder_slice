@@ -67,4 +67,3 @@ pub trait ReadSlice<'a> {
     /// Try to move forward in self
     fn move_forward(&mut self, nb_bytes: usize) -> IoResult<()>;
 }
-
